@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>お気に入り店舗一覧</title>
+    <link rel="stylesheet" href="favorites.css">
+</head>
+<body>
+    <div class="container">
+        <h1>お気に入り店舗一覧</h1>
+        <ul id="favorites-list">
+            <!-- ここにお気に入り店舗リストをJSやサーバーサイドで挿入 -->
+        </ul>
+        <a class="back-link" href="favorites_search.html">店舗検索に戻る</a>
+    </div>
+    <!-- サンプル：ローカルストレージやサーバーサイドでお気に入りを管理する場合はJSで動的にリスト生成可能 -->
+    <script src="linkUtils.js"></script>
+    <script>
+    // 例: ローカルストレージからお気に入り店舗を取得して表示
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const storeList = JSON.parse(localStorage.getItem('storeList') || '[]');
+    const list = document.getElementById('favorites-list');
+
+    if (favorites.length === 0) {
+        list.innerHTML = '<li>お気に入り店舗はありません。</li>';
+    } else {
+        favorites.forEach((store, idx) => {
+            const li = document.createElement('li');
+            // storeListからid一致する店舗情報を取得
+            let storeData = store;
+            if (store.id && Array.isArray(storeList)) {
+                const found = storeList.find(s => s.id === store.id);
+                if (found) {
+                    storeData = { ...store, ...found };
+                }
+            }
+            // 公式HPがあればリンク、なければ黒文字
+            let nameHtml = '';
+            if (storeData.url && storeData.url !== '' && storeData.url !== 'undefined' && !/^https?:\/\/www\.google\.com\/maps/.test(storeData.url)) {
+                // http/httpsがなければ付与
+                let safeUrl = storeData.url;
+                if (!/^https?:\/\//i.test(safeUrl)) {
+                    safeUrl = 'https://' + safeUrl;
+                }
+                nameHtml = `<a href="${safeUrl}" class="store-name" target="_blank" rel="noopener noreferrer">${storeData.name}</a>`;
+            } else {
+                nameHtml = `<span class="store-name" style="color:#222">${storeData.name}</span>`;
+            }
+            // 地図で見るリンク（店舗名でGoogleマップ検索）
+            const mapUrlHtml = storeData.name
+                ? `<a class="map-link green-map-url" href="https://www.google.com/maps/search/?api=1&language=ja&hl=ja&query=${encodeURIComponent(storeData.name)}" target="_blank">地図で見る</a>`
+                : '';
+            li.innerHTML = `${nameHtml} <span class="store-address">${storeData.address}</span> ${mapUrlHtml} <button class="remove-fav-btn styled-fav-btn" data-idx="${idx}"><span class="remove-fav-icon">&#128465;</span> 削除</button>`;
+            list.appendChild(li);
+        });
+        // 削除ボタンのイベントリスナー
+        document.querySelectorAll('.remove-fav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const idx = parseInt(this.getAttribute('data-idx'), 10);
+                favorites.splice(idx, 1);
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                location.reload();
+            });
+        });
+    }
+    
+    </script>
+</body>
+</html>

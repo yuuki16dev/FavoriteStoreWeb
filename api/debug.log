@@ -1,0 +1,836 @@
+{
+  "ResultInfo" : {
+    "Count" : 10,
+    "Total" : 45,
+    "Start" : 1,
+    "Status" : 200,
+    "Description" : "",
+    "Copyright" : "",
+    "Latency" : 0.03
+  },
+  "Feature" : [ {
+    "Id" : "gj2k200",
+    "Gid" : "MSPE889IkLw",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u9D28\u5BAE\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "139.17937958,35.27628476"
+    },
+    "Category" : [ "\u5C45\u9152\u5C4B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "426438c6f9ce706d25051dce77ef8ba6809a4a5b",
+      "CassetteId" : "a6e27b84663abc4336dc275c6fb7f978",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30AB\u30E2\u30CE\u30DF\u30E4\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u795E\u5948\u5DDD\u770C\u5C0F\u7530\u539F\u5E02\u9D28\u5BAE25",
+      "GovernmentCode" : "14206",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "0465-49-6622",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      } ],
+      "Station" : [ {
+        "Id" : "23124",
+        "SubId" : "2312401",
+        "Name" : "\u9D28\u5BAE",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u5317\u53E3",
+        "ExitId" : "5568",
+        "Distance" : "81",
+        "Time" : "1",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.180216,35.276001"
+        }
+      }, {
+        "Id" : "23170",
+        "SubId" : "2317001",
+        "Name" : "\u4E94\u767E\u7F85\u6F22",
+        "Railway" : "\u4F0A\u8C46\u7BB1\u6839\u9244\u9053",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "5644",
+        "Distance" : "2589",
+        "Time" : "32",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.155635,35.275112"
+        }
+      }, {
+        "Id" : "23059",
+        "SubId" : "2305901",
+        "Name" : "\u8DB3\u67C4(\u795E\u5948\u5DDD\u770C)",
+        "Railway" : "\u5C0F\u7530\u6025\u96FB\u9244",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "5453",
+        "Distance" : "2731",
+        "Time" : "34",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.154552,35.272196"
+        }
+      } ],
+      "ParkingFlag" : "false",
+      "CouponFlag" : "true",
+      "SmartPhoneCouponFlag" : "true",
+      "Coupon" : [ {
+        "Name" : "\u3010\u5BB4\u4F1A\u306F\u5E73\u65E5\u304C\u8D85\u304A\u5F97\uFF01\u65E5\uFF5E\u6728\u66DC\u9650\u5B9A\uFF01\u3011\u8089\u76DBor\u821F\u76DB\u5BB4\u4F1A\u98F2\u307F\u653E\u984C1\u6642\u9593\u5EF6\u9577\u7121\u6599\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/gj2k200\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/gj2k200\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u5358\u54C1\u98F2\u307F\u653E\u984C1980\u5186\u30AF\u30FC\u30DD\u30F3\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/gj2k200\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/gj2k200\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u3010\u8A95\u751F\u65E5\u3084\u8A18\u5FF5\u65E5\u306B\uFF01\u3011\u30E1\u30C3\u30BB\u30FC\u30B8\u5165\u308A\u30C7\u30B6\u30FC\u30C8\u30D7\u30EC\u30FC\u30C81000\u5186\u2192500\u5186\u30AF\u30FC\u30DD\u30F3\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/gj2k200\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/gj2k200\/coupon\/?sc_cid=al_yah"
+      } ]
+    }
+  }, {
+    "Id" : "ghsc400",
+    "Gid" : "VdVg0F3a7dA",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u5357\u5927\u6CA2\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "139.38029325,35.61465472"
+    },
+    "Category" : [ "\u5C45\u9152\u5C4B,\u3082\u3064\u934B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "255476ca199bd959587bbb9727923b67f7e07390",
+      "CassetteId" : "a6e27b84663abc4336dc275c6fb7f978",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30DF\u30CA\u30DF\u30AA\u30AA\u30B5\u30EF\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u6771\u4EAC\u90FD\u516B\u738B\u5B50\u5E02\u5357\u5927\u6CA22-3 \u30D5\u30A1\u30D6\u5357\u5927\u6CA23F",
+      "GovernmentCode" : "13201",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "042-670-8322",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      } ],
+      "Station" : [ {
+        "Id" : "22992",
+        "SubId" : "2299201",
+        "Name" : "\u5357\u5927\u6CA2",
+        "Railway" : "\u4EAC\u738B\u96FB\u9244",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "5248",
+        "Distance" : "735",
+        "Time" : "9",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.379857,35.614069"
+        }
+      }, {
+        "Id" : "22806",
+        "SubId" : "2280601",
+        "Name" : "\u591A\u6469\u5883",
+        "Railway" : "\u4EAC\u738B\u96FB\u9244",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "4515",
+        "Distance" : "2053",
+        "Time" : "25",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.366831,35.601986"
+        }
+      }, {
+        "Id" : "22658",
+        "SubId" : "2265801",
+        "Name" : "\u4EAC\u738B\u5800\u4E4B\u5185",
+        "Railway" : "\u4EAC\u738B\u96FB\u9244",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "3894",
+        "Distance" : "2350",
+        "Time" : "29",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.400327,35.624457"
+        }
+      } ],
+      "LeadImage" : "https:\/\/rimage.gnst.jp\/rest\/img\/da55rdtx0000\/s_0n5x.jpg",
+      "ParkingFlag" : "false",
+      "CouponFlag" : "true",
+      "SmartPhoneCouponFlag" : "true",
+      "Coupon" : [ {
+        "Name" : "\u2606\u4E8B\u524D\u4E88\u7D04\u00D7\u5272\u5F15\u2606\u304A\u8CA1\u5E03\u306B\u512A\u3057\u3044\u266A\u301010%OFF\u266A\u3011\u6700\u5927\uFF13\uFF10\uFF10\uFF10\u5186\u304A\u5F97\u306B\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u2605\u3054\u5BB4\u4F1A\u00D73\u6642\u9593\u2605\u4E00\u4EBA800\u5186\u5206\u304A\u5F97\u266A\u3010\uFF16\uFF10\u5206\u7121\u6599\u5EF6\u9577\u3011\u201D\u9577\u304F\u201D\u697D\u3057\u3044\u6642\u9593\u3092\u304A\u904E\u3054\u3057\u304F\u3060\u3055\u3044\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u2606\u5358\u54C1\u98F2\u307F\u653E\u984C\u2606\u305F\u304F\u3055\u3093\u98F2\u307F\u305F\u3044\u65B9\u5FC5\u898B\uFF01\u901A\u5E381980\u5186\u21D2\uFF1170\uFF10\u5186\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u2605\u3054\u5BB4\u4F1A\u00D7\u5E79\u4E8B\u69D8\u7279\u5178\u2605\u3010\uFF11\uFF10\u540D\u69D8\u3067\uFF11\u540D\u5206\u306E\u30B3\u30FC\u30B9\u6599\u7406\u4EE3\u91D1\u7121\u6599\/\uFF12\uFF10\u540D\u69D8\u3067\uFF12\u540D\u5206\u3011",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u2606\u4E8B\u524D\u4E88\u7D04\u00D7\u6599\u7406\u30D7\u30EC\u30BC\u30F3\u30C8\u2606\u4ECA\u5BB5\u306E\u9038\u54C1\u266A\u3010\u304A\u523A\u8EAB\uFF13\u70B9\u76DB\u308Aor\u30C1\u30AD\u30F3\u5357\u86EE\u30111\u76BF\u30B5\u30FC\u30D3\u30B9\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/ghsc400\/coupon\/?sc_cid=al_yah"
+      } ]
+    }
+  }, {
+    "Id" : "k599245",
+    "Gid" : "dV4xm6kpNZU",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u4F4F\u9053\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "135.62150424,34.70855439"
+    },
+    "Category" : [ "\u5C45\u9152\u5C4B,\u4E5D\u5DDE\u6599\u7406,\u70AD\u706B\u713C\u304D,\u3082\u3064\u934B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "917cec9cdf4808c68fc9c7924dd92a3e3f8e8aab",
+      "CassetteId" : "a6e27b84663abc4336dc275c6fb7f978",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4 \u30B9\u30DF\u30CE\u30C9\u30A6\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u5927\u962A\u5E9C\u5927\u6771\u5E02\u6D5C\u753A9-10 3F",
+      "GovernmentCode" : "27218",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "050-1807-8281",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0101044",
+        "Name" : "\u70AD\u706B\u713C\u304D"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      } ],
+      "Station" : [ {
+        "Id" : "25991",
+        "SubId" : "2599101",
+        "Name" : "\u4F4F\u9053",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E32",
+        "ExitId" : "10803",
+        "Distance" : "354",
+        "Time" : "4",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "135.621624,34.706366"
+        }
+      }, {
+        "Id" : "26115",
+        "SubId" : "2611501",
+        "Name" : "\u91CE\u5D0E(\u5927\u962A\u5E9C)",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "11566",
+        "Distance" : "2315",
+        "Time" : "28",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "135.637178,34.718559"
+        }
+      }, {
+        "Id" : "25931",
+        "SubId" : "2593101",
+        "Name" : "\u9D3B\u6C60\u65B0\u7530",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "10577",
+        "Distance" : "2645",
+        "Time" : "33",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "135.598070,34.698727"
+        }
+      } ],
+      "LeadImage" : "https:\/\/rimage.gnst.jp\/rest\/img\/96wnx6be0000\/s_0n6a.jpg",
+      "ParkingFlag" : "false",
+      "SmartPhoneCouponFlag" : "false",
+      "Coupon" : [ ],
+      "KeepCount" : "7"
+    }
+  }, {
+    "Id" : "10010548638",
+    "Gid" : "dV4xm6kpNZU",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u4F4F\u9053\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "135.62152207,34.70857147"
+    },
+    "Category" : [ "\u30E2\u30C4\u934B\u5E97,\u9903\u5B50\u5E97,\u30EC\u30B9\u30C8\u30E9\u30F3\u95A2\u9023,\u5C45\u9152\u5C4B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "98b2ae305f36424fee44bb4b9651fa1a2ab50479",
+      "CassetteId" : "a8bcd9450c541521bba8260a9170f8a7",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30B9\u30DF\u30CE\u30C9\u30A6\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u5927\u962A\u5E9C\u5927\u6771\u5E02\u6D5C\u753A\uFF19\uFF0D\uFF11\uFF10",
+      "GovernmentCode" : "27218",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "072-889-5077",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0101044",
+        "Name" : "\u70AD\u706B\u713C\u304D"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      }, {
+        "Code" : "0110001",
+        "Name" : "\u548C\u98A8\u5C45\u9152\u5C4B"
+      }, {
+        "Code" : "0101034",
+        "Name" : "\u6D77\u9BAE\u6599\u7406"
+      }, {
+        "Code" : "01",
+        "Name" : "\u30B0\u30EB\u30E1"
+      }, {
+        "Code" : "0101047",
+        "Name" : "\u3082\u3064\u6599\u7406"
+      }, {
+        "Code" : "0104008",
+        "Name" : "\u9903\u5B50"
+      } ],
+      "Station" : [ {
+        "Id" : "25991",
+        "SubId" : "2599101",
+        "Name" : "\u4F4F\u9053",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E32",
+        "ExitId" : "10803",
+        "Distance" : "356",
+        "Time" : "4",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "135.621624,34.706366"
+        }
+      }, {
+        "Id" : "26115",
+        "SubId" : "2611501",
+        "Name" : "\u91CE\u5D0E(\u5927\u962A\u5E9C)",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "11566",
+        "Distance" : "2312",
+        "Time" : "28",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "135.637178,34.718559"
+        }
+      }, {
+        "Id" : "25931",
+        "SubId" : "2593101",
+        "Name" : "\u9D3B\u6C60\u65B0\u7530",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "10577",
+        "Distance" : "2646",
+        "Time" : "33",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "135.598070,34.698727"
+        }
+      } ],
+      "SmartPhoneCouponFlag" : "false"
+    }
+  }, {
+    "Id" : "y669910",
+    "Gid" : "Z42BKRFN3B2",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u7C73\u5B50\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "133.33438893,35.42406341"
+    },
+    "Category" : [ "\u5C45\u9152\u5C4B,\u4E5D\u5DDE\u6599\u7406,\u5275\u4F5C\u6599\u7406,\u70AD\u706B\u713C\u304D,\u3082\u3064\u934B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "e91a35c34faac92f5a39f4aee542af1faf03381a",
+      "CassetteId" : "a6e27b84663abc4336dc275c6fb7f978",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4 \u30E8\u30CA\u30B4\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u9CE5\u53D6\u770C\u7C73\u5B50\u5E02\u660E\u6CBB\u753A224 1\uFF652F",
+      "GovernmentCode" : "31202",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "050-1807-8423",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0112001",
+        "Name" : "\u5275\u4F5C\u6599\u7406"
+      }, {
+        "Code" : "0101044",
+        "Name" : "\u70AD\u706B\u713C\u304D"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      } ],
+      "Area" : [ {
+        "Code" : "000070",
+        "Name" : "\u7C73\u5B50\u30FB\u7686\u751F\u6E29\u6CC9"
+      } ],
+      "Station" : [ {
+        "Id" : "26912",
+        "SubId" : "2691201",
+        "Name" : "\u7C73\u5B50",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13237",
+        "Distance" : "173",
+        "Time" : "2",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "133.336144,35.423086"
+        }
+      }, {
+        "Id" : "26892",
+        "SubId" : "2689201",
+        "Name" : "\u535A\u52B4\u753A",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13217",
+        "Distance" : "1048",
+        "Time" : "13",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "133.340144,35.431029"
+        }
+      }, {
+        "Id" : "26898",
+        "SubId" : "2689801",
+        "Name" : "\u5BCC\u58EB\u898B\u753A(\u9CE5\u53D6\u770C)",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13223",
+        "Distance" : "1571",
+        "Time" : "19",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "133.336366,35.434834"
+        }
+      } ],
+      "LeadImage" : "https:\/\/rimage.gnst.jp\/rest\/img\/mjjamb4p0000\/s_0oii.jpg",
+      "ParkingFlag" : "false",
+      "CouponFlag" : "true",
+      "SmartPhoneCouponFlag" : "true",
+      "Coupon" : [ {
+        "Name" : "\u3010\u5BB4\u4F1A\u7279\u5178\uFF11\u3011\u266A 4500\u5186\u4EE5\u4E0A\uFF066\u540D\u69D8\u4EE5\u4E0A\u3067\u4E00\u540D\u69D8\u5B8C\u5168\u7121\u6599\u266A",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u3010\u5BB4\u4F1A\u7279\u5178\uFF12\u3011\u7279\u5225\u98F2\u307F\u653E\u984C2\uFF10\uFF10\u5186\u304C\u7121\u6599\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u4E8B\u524D\u4E88\u7D04\u3067\u304A\u4F1A\u8A08\u3088\u308A10\uFF05\u5F15\u304D\uFF08\u5272\u5F15\u4E0A\u96503000\u5186\uFF09\u203B\u5F53\u65E5\u306F5\uFF05OFF",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u2605\uFF12\uFF48\u98F2\u307F\u653E\u984C1,500\u5186\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u5BB4\u4F1A\u30B3\u30FC\u30B9\u9650\u5B9A\uFF01\uFF01\u751F\u30D3\u30FC\u30EB\u7121\u3057\u98F2\u307F\u653E\u984C\u306B\u5909\u66F4\u3067\u300E\u4EBA\u6570\u00D7300\u5186\u300F\u5272\u5F15",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/y669910\/coupon\/?sc_cid=al_yah"
+      } ],
+      "KeepCount" : "9"
+    }
+  }, {
+    "Id" : "a127640",
+    "Gid" : "uvkf_1ypiFE",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u5DDD\u5D0E\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "139.70164534,35.53152181"
+    },
+    "Category" : [ "\u5C45\u9152\u5C4B,\u4E5D\u5DDE\u6599\u7406,\u523A\u8EAB" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "e1a4e7035a5dd34db45453bb29d5a2c40ec1229d",
+      "CassetteId" : "a6e27b84663abc4336dc275c6fb7f978",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30AB\u30EF\u30B5\u30AD\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u795E\u5948\u5DDD\u770C\u5DDD\u5D0E\u5E02\u5DDD\u5D0E\u533A\u7802\u5B501-7-1 KJ\u7802\u5B50\u7B2C2\u30D3\u30EBB1",
+      "GovernmentCode" : "14131",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "044-233-2555",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0101034",
+        "Name" : "\u6D77\u9BAE\u6599\u7406"
+      } ],
+      "Station" : [ {
+        "Id" : "23147",
+        "SubId" : "2314701",
+        "Name" : "\u4EAC\u6025\u5DDD\u5D0E",
+        "Railway" : "\u4EAC\u6D5C\u6025\u884C\u96FB\u9244",
+        "Exit" : "\u4E2D\u592E\u53E3",
+        "ExitId" : "5614",
+        "Distance" : "232",
+        "Time" : "2",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.700251,35.532255"
+        }
+      }, {
+        "Id" : "23126",
+        "SubId" : "2312601",
+        "Name" : "\u5DDD\u5D0E",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u6771\u53E3",
+        "ExitId" : "5571",
+        "Distance" : "449",
+        "Time" : "5",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.697473,35.531005"
+        }
+      }, {
+        "Id" : "23333",
+        "SubId" : "2333301",
+        "Name" : "\u6E2F\u753A",
+        "Railway" : "\u4EAC\u6D5C\u6025\u884C\u96FB\u9244",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "5947",
+        "Distance" : "1161",
+        "Time" : "14",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "139.712333,35.534921"
+        }
+      } ],
+      "LeadImage" : "https:\/\/rimage.gnst.jp\/rest\/img\/60uhxdmb0000\/s_0ogk.jpg",
+      "ParkingFlag" : "false",
+      "CouponFlag" : "true",
+      "SmartPhoneCouponFlag" : "true",
+      "Coupon" : [ {
+        "Name" : "\u3010\u30CF\u30C3\u30D4\u30FC\u30A2\u30EF\u30FC\u301118:00\u307E\u3067\u4E00\u90E8\u30CF\u30A4\u30DC\u30FC\u30EB\u30FB\u30B5\u30EF\u30FC\u304C\u534A\u984D",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u3010\u3054\u5BB4\u4F1A\u9650\u5B9A\u30AF\u30FC\u30DD\u30F3\u3011\u901A\u5E38\u98F2\u307F\u653E\u984C\u21D2\u3010\u7279\u9078\u30D7\u30EC\u30DF\u30A2\u30E0\u98F2\u307F\u653E\u984C\u3011\u30B0\u30EC\u30FC\u30C9UP\u3092\u30B5\u30FC\u30D3\u30B9\u266A",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u3010\u5F53\u65E5\uFF2F\uFF2B\u3011\u672C\u65E5\u306E\u304A\u4F1A\u8A08\u304B\u3089\u21D25\uFF05OFF\uFF01\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u3010\u3054\u5BB4\u4F1A\u9650\u5B9A\u30AF\u30FC\u30DD\u30F3\u3011\u901A\u5E38\uFF1D2\u6642\u9593\u5236\u21D23\u6642\u9593\u5236\u3078\u6642\u9593\u5EF6\u9577\u7121\u6599\uFF01\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u5F53\u5E97\u540D\u7269\u3010\u7279\u9078\u99AC\u523A\u3057\u3011 1\u30B0\u30EB\u30FC\u30D7\u306B\u3064\u304D\u4E00\u76BF\u30B5\u30FC\u30D3\u30B9\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah"
+      }, {
+        "Name" : "\u3010\u3054\u5BB4\u4F1A\u30AF\u30FC\u30DD\u30F3\u301110\u540D\u69D8\u306B\u3064\u304D1\u540D\u69D8\u6599\u7406\u4EE3\u91D1\u7121\u6599\u266A\u6700\u592740\u540D\u69D8\u30674\u540D\u69D8\u6599\u7406\u4EE3\u91D1\u7121\u6599\uFF01",
+        "PcUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=870&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah",
+        "MobileFlag" : "true",
+        "SmartPhoneUrl" : "https:\/\/gaff.gurunavi.jp\/track\/gc.php?ga_bid=869&ga_pid=1713&ga_red=https:\/\/r.gnavi.co.jp\/a127640\/coupon\/?sc_cid=al_yah"
+      } ],
+      "KeepCount" : "9"
+    }
+  }, {
+    "Id" : "10010602696",
+    "Gid" : "JzUERXTQe96",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u65ED\u5DDD\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "142.35989753,43.76648844"
+    },
+    "Category" : [ "\u30EC\u30B9\u30C8\u30E9\u30F3\u95A2\u9023" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "8ae91f3a873f53c5248283b5c723abde4d64b85e",
+      "CassetteId" : "a8bcd9450c541521bba8260a9170f8a7",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30A2\u30B5\u30D2\u30AB\u30EF\u30C6\u30F3",
+      "Country" : null,
+      "Address" : "\u5317\u6D77\u9053\u65ED\u5DDD\u5E02\uFF12\u6761\u901A\uFF18\u4E01\u76EE",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "0166-21-5588",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      }, {
+        "Code" : "0110001",
+        "Name" : "\u548C\u98A8\u5C45\u9152\u5C4B"
+      }, {
+        "Code" : "0101034",
+        "Name" : "\u6D77\u9BAE\u6599\u7406"
+      } ],
+      "SmartPhoneCouponFlag" : "false"
+    }
+  }, {
+    "Id" : "h112516",
+    "Gid" : "JzUERXTQe96",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u65ED\u5DDD\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "142.35988326,43.76647945"
+    },
+    "Category" : [ "\u4E5D\u5DDE\u6599\u7406,\u3082\u3064\u934B,\u5C45\u9152\u5C4B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "b789b70a0b22014ea1a7c51b6fa7890aaf08953d",
+      "CassetteId" : "a6e27b84663abc4336dc275c6fb7f978",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4 \u30A2\u30B5\u30D2\u30AB\u30EF\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u5317\u6D77\u9053\u65ED\u5DDD\u5E022\u6761\u901A\u308A8-569-1 2F",
+      "GovernmentCode" : "01204",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "0166-21-5588",
+      "Genre" : [ {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      }, {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      } ],
+      "Station" : [ {
+        "Id" : "20012",
+        "SubId" : "2001201",
+        "Name" : "\u65ED\u5DDD",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "12",
+        "Distance" : "333",
+        "Time" : "4",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "142.358186,43.763680"
+        }
+      }, {
+        "Id" : "20014",
+        "SubId" : "2001401",
+        "Name" : "\u65ED\u5DDD\u56DB\u6761",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13",
+        "Distance" : "1585",
+        "Time" : "19",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "142.375906,43.764208"
+        }
+      }, {
+        "Id" : "20266",
+        "SubId" : "2026601",
+        "Name" : "\u65B0\u65ED\u5DDD",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "350",
+        "Distance" : "3101",
+        "Time" : "38",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "142.384488,43.779846"
+        }
+      } ],
+      "LeadImage" : "https:\/\/rimage.gnst.jp\/rest\/img\/d5v0jgt80000\/s_0n5x.jpg",
+      "ParkingFlag" : "false",
+      "SmartPhoneCouponFlag" : "false",
+      "Coupon" : [ ]
+    }
+  }, {
+    "Id" : "10010586324",
+    "Gid" : "JzUERXTQe96",
+    "Name" : "\u4E5D\u5DDE\u9B42 \u65ED\u5DDD\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "142.35989753,43.76648844"
+    },
+    "Category" : [ "\u30EC\u30B9\u30C8\u30E9\u30F3\u95A2\u9023" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "c066010fe1bc9d57c44c21af12b8d3b96460fc95",
+      "CassetteId" : "a8bcd9450c541521bba8260a9170f8a7",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30A2\u30B5\u30D2\u30AB\u30EF\u30C6\u30F3",
+      "Country" : null,
+      "Address" : "\u5317\u6D77\u9053\u65ED\u5DDD\u5E02\uFF12\u6761\u901A\uFF18\u4E01\u76EE",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "0166-21-5588",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      }, {
+        "Code" : "0110001",
+        "Name" : "\u548C\u98A8\u5C45\u9152\u5C4B"
+      }, {
+        "Code" : "0101034",
+        "Name" : "\u6D77\u9BAE\u6599\u7406"
+      } ],
+      "SmartPhoneCouponFlag" : "false"
+    }
+  }, {
+    "Id" : "10010304235",
+    "Gid" : "1zlUb-xjlmo",
+    "Name" : "\u4E5D\u5DDE\u9B42\u5449\u5E97",
+    "Geometry" : {
+      "Type" : "point",
+      "Coordinates" : "132.55712825,34.24429681"
+    },
+    "Category" : [ "\u30EC\u30B9\u30C8\u30E9\u30F3\u95A2\u9023,\u5C45\u9152\u5C4B" ],
+    "Description" : "",
+    "Style" : [ ],
+    "Property" : {
+      "Uid" : "b47babdf546c8ccfc9a68e048b5a59b6532d8ddc",
+      "CassetteId" : "a8bcd9450c541521bba8260a9170f8a7",
+      "Yomi" : "\u30AD\u30E5\u30A6\u30B7\u30E5\u30A6\u30C0\u30DE\u30B7\u30A4\u30AF\u30EC\u30C6\u30F3",
+      "Country" : {
+        "Code" : "JP",
+        "Name" : "\u65E5\u672C"
+      },
+      "Address" : "\u5E83\u5CF6\u770C\u5449\u5E02\u5B9D\u753A\uFF12\uFF0D\uFF15\uFF10",
+      "GovernmentCode" : "34202",
+      "AddressMatchingLevel" : "6",
+      "Tel1" : "0823-32-0033",
+      "Genre" : [ {
+        "Code" : "0110",
+        "Name" : "\u5C45\u9152\u5C4B\u3001\u30D3\u30A2\u30DB\u30FC\u30EB"
+      }, {
+        "Code" : "0109001",
+        "Name" : "\u934B\u6599\u7406"
+      }, {
+        "Code" : "0110001",
+        "Name" : "\u548C\u98A8\u5C45\u9152\u5C4B"
+      }, {
+        "Code" : "0101034",
+        "Name" : "\u6D77\u9BAE\u6599\u7406"
+      }, {
+        "Code" : "0104008",
+        "Name" : "\u9903\u5B50"
+      }, {
+        "Code" : "0101033",
+        "Name" : "\u90F7\u571F\u6599\u7406"
+      } ],
+      "Station" : [ {
+        "Id" : "27258",
+        "SubId" : "2725801",
+        "Name" : "\u5449",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13599",
+        "Distance" : "180",
+        "Time" : "2",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "132.557808,34.244818"
+        }
+      }, {
+        "Id" : "27248",
+        "SubId" : "2724801",
+        "Name" : "\u5DDD\u539F\u77F3",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13587",
+        "Distance" : "1947",
+        "Time" : "24",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "132.540781,34.248984"
+        }
+      }, {
+        "Id" : "27439",
+        "SubId" : "2743901",
+        "Name" : "\u5409\u6D66",
+        "Railway" : "JR\u5728\u6765\u7DDA",
+        "Exit" : "\u51FA\u53E3",
+        "ExitId" : "13798",
+        "Distance" : "3698",
+        "Time" : "46",
+        "Geometry" : {
+          "Type" : "point",
+          "Coordinates" : "132.526894,34.258066"
+        }
+      } ],
+      "SmartPhoneCouponFlag" : "false"
+    }
+  } ]
+}
