@@ -1,23 +1,26 @@
 <?php
+// Google Places API経由で店舗検索・詳細取得API
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
 
-$apiKey = 'AIzaSyDjcIxdZOBupvg8-9XIxBLp9tt7freW60I'; // ★ここにGoogle Cloud Consoleで取得したAPIキーを設定
+$apiKey = 'AIzaSyDjcIxdZOBupvg8-9XIxBLp9tt7freW60I'; // ★Google Cloud Consoleで取得したAPIキーを設定
 $query = isset($_GET['query']) ? $_GET['query'] : '';
 $lat = isset($_GET['lat']) ? $_GET['lat'] : '';
 $lon = isset($_GET['lon']) ? $_GET['lon'] : '';
 $radius = isset($_GET['dist']) ? floatval($_GET['dist']) * 1000 : 20000; // デフォルト20km
 
+// 検索クエリが未指定の場合はエラー返却
 if (!$query) {
     echo json_encode(['error' => 'No query']);
     exit;
 }
 
-// Google Places API Text Search endpoint
+// Google Places API Text Searchエンドポイント生成
 $url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' . urlencode($query) .
     ($lat && $lon ? ('&location=' . urlencode($lat . ',' . $lon) . '&radius=' . intval($radius)) : '') .
     '&language=ja&key=' . urlencode($apiKey);
 
+// Text Search APIリクエスト
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -26,20 +29,21 @@ $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 if ($httpcode !== 200 || !$response) {
+    // API通信エラー時
     echo json_encode(['error' => 'API通信エラー', 'status' => $httpcode, 'url' => $url]);
     exit;
 }
 
 $data = json_decode($response, true);
 if (!$data || !isset($data['results'])) {
+    // レスポンスパースエラー時
     echo json_encode(['error' => 'APIレスポンスエラー', 'raw' => $response]);
     exit;
 }
 
-// Google Places APIの生レスポンスをそのまま返す
-// ページネーション対応（最大20件までwebsite取得）
+// 最大20件までの店舗情報に対し、Place Details APIでwebsiteを取得
 if (isset($data['results']) && is_array($data['results'])) {
-    $max = min(count($data['results']), 20); // 20件までに拡張
+    $max = min(count($data['results']), 20); // 最大20件まで
     for ($i = 0; $i < $max; $i++) {
         $place = $data['results'][$i];
         if (!empty($place['place_id'])) {
@@ -56,9 +60,11 @@ if (isset($data['results']) && is_array($data['results'])) {
                     $data['results'][$i]['website'] = $details['result']['website'];
                 }
             } else {
+                // エラー時は空文字セット
                 $data['results'][$i]['website'] = '';
             }
         }
     }
 }
+// 最終レスポンス返却（JSON整形）
 echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

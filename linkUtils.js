@@ -1,5 +1,13 @@
+// =============================
 // 共通リンク生成用ユーティリティ
-// 店舗名リンク（公式HPがあればリンク、なければspan）
+// =============================
+
+/**
+ * 店舗名リンク生成（公式HPがあればリンク、なければspan）
+ * @param {string} name 店舗名
+ * @param {string} url 公式HPのURL
+ * @returns {string} HTML文字列
+ */
 function createStoreNameLink(name, url) {
     // URLがhttp/httpsで始まらない場合は自動でhttps://を付与
     if (url && url !== '') {
@@ -12,7 +20,13 @@ function createStoreNameLink(name, url) {
         return `<span class="store-name">${name}</span>`;
     }
 }
-// GoogleマップURLリンク（緑色クラス付与）
+
+/**
+ * GoogleマップURLリンク生成（緑色クラス付与）
+ * @param {string|number} lat 緯度
+ * @param {string|number} lng 経度
+ * @returns {string} HTML文字列
+ */
 function createMapUrlLink(lat, lng) {
     if (lat && lng) {
         // Googleマップの「地図で見る」テキストでリンク（?q=lat,lng&hl=ja形式）

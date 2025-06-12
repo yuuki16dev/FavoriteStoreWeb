@@ -1,3 +1,6 @@
+/* =============================
+   共通レイアウト・全体背景
+   ============================= */
 body {
     font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
     background: #f6f8fa;
@@ -17,6 +20,10 @@ h1 {
     color: #2d3748;
     margin-bottom: 32px;
 }
+
+/* =============================
+   リスト・カード・リンク装飾
+   ============================= */
 ul {
     list-style: none;
     padding: 0;
@@ -72,250 +79,236 @@ li:hover {
 .back-link:hover {
     color: #1d4ed8;
 }
-/* --- 店舗カードレイアウト --- */
+
+/* =============================
+   店舗カードレイアウト
+   ============================= */
 .store-card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(60,64,67,0.07);
-  margin-bottom: 28px;
-  padding: 18px 20px 14px 20px;
-  transition: box-shadow 0.2s;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(60,64,67,0.07);
+    margin-bottom: 28px;
+    padding: 18px 20px 14px 20px;
+    transition: box-shadow 0.2s;
 }
 .store-card:hover {
-  box-shadow: 0 4px 16px rgba(60,64,67,0.13);
+    box-shadow: 0 4px 16px rgba(60,64,67,0.13);
 }
 .store-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
 }
 .store-title {
-  font-size: 1.18em;
-  color: #202124;
-  margin: 0;
-  font-weight: bold;
+    font-size: 1.18em;
+    color: #202124;
+    margin: 0;
+    font-weight: bold;
 }
 .store-actions {
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
 }
 .map-btn {
-  background: #4285f4;
-  color: #fff;
-  border: none;
-  padding: 4px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.97em;
+    background: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.97em;
 }
 .fav-btn {
-  background: #fbbc05;
-  color: #222;
-  border: none;
-  padding: 4px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.97em;
-  transition: background 0.2s;
+    background: #fbbc05;
+    color: #222;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.97em;
+    transition: background 0.2s;
 }
 .fav-btn:hover {
-  background: #ffe066;
+    background: #ffe066;
 }
 .fav-btn-done {
-  background: #eee;
-  color: #888;
-  border: 1px solid #ccc;
-  padding: 4px 12px;
-  border-radius: 4px;
-  cursor: not-allowed;
-  font-size: 0.97em;
+    background: #eee;
+    color: #888;
+    border: 1px solid #ccc;
+    padding: 4px 12px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    font-size: 0.97em;
 }
 .store-info {
-  font-size: 0.97em;
-  color: #555;
-  margin-bottom: 4px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+    font-size: 0.97em;
+    color: #555;
+    margin-bottom: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 .store-address {
-  color: #333;
+    color: #333;
 }
 .store-url a {
-  color: #006621;
-  text-decoration: underline;
-  word-break: break-all;
+    color: #006621;
+    text-decoration: underline;
+    word-break: break-all;
 }
 .store-snippet {
-  font-size: 0.98em;
-  color: #4d5156;
-  margin-top: 2px;
+    font-size: 0.98em;
+    color: #4d5156;
+    margin-top: 2px;
 }
 .styled-fav-btn {
-  background: #fbbc05;
-  color: #222;
-  border: none;
-  padding: 4px 16px 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.97em;
-  margin-left: 8px;
-  transition: background 0.2s, box-shadow 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    background: #fbbc05;
+    color: #222;
+    border: none;
+    padding: 4px 16px 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.97em;
+    margin-left: 8px;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 .styled-fav-btn:hover {
-  background: #ffe066;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.13);
+    background: #ffe066;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.13);
 }
 .remove-fav-icon {
-  font-size: 1.1em;
-  margin-right: 2px;
-  vertical-align: middle;
-  color: #c62828;
+    font-size: 1.1em;
+    margin-right: 2px;
+    vertical-align: middle;
+    color: #c62828;
 }
 
 #favorites-list li {
-  padding: 12px 0 12px 0;
-  border-bottom: 1px solid #ececec;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    padding: 12px 0 12px 0;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .store-name {
-  font-weight: bold;
-  color: #1a0dab;
-  margin-right: 8px;
+    font-weight: bold;
+    color: #1a0dab;
+    margin-right: 8px;
 }
 .store-address {
-  color: #444;
-  margin-right: 8px;
+    color: #444;
+    margin-right: 8px;
 }
 .map-link {
-  color: #006621;
-  text-decoration: underline;
-  margin-right: 8px;
-  font-size: 0.97em;
+    color: #006621;
+    text-decoration: underline;
+    margin-right: 8px;
+    font-size: 0.97em;
 }
 .favorite-btn {
-  background: #1a73e8 !important;
-  color: #fff !important;
-  border: none;
-  padding: 4px 16px 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.97em;
-  margin-left: 8px;
-  margin-top: 8px;
-  float: right;
-  transition: background 0.2s, box-shadow 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    background: #1a73e8 !important;
+    color: #fff !important;
+    border: none;
+    padding: 4px 16px 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.97em;
+    margin-left: 8px;
+    margin-top: 8px;
+    float: right;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 .favorite-btn:hover {
-  background: #1765c1 !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.13);
+    background: #1765c1 !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.13);
 }
 
 .favorite-registered {
-  color: #eab308;
-  font-weight: bold;
-  float: right;
-  margin-top: 8px;
-  font-size: 1em;
+    color: #eab308;
+    font-weight: bold;
+    float: right;
+    margin-top: 8px;
+    font-size: 1em;
 }
 .green-map-url {
-  color: #006621 !important;
-  text-decoration: underline;
-  word-break: break-all;
-  margin-right: 8px;
-  font-size: 0.97em;
+    color: #006621 !important;
+    text-decoration: underline;
+    word-break: break-all;
+    margin-right: 8px;
+    font-size: 0.97em;
 }
 
-/* --- ページネーションUI（favorites_search.htmlの下部ページ切り替えボタン） --- */
+/* =============================
+   ページネーションUI（favorites_search.htmlの下部ページ切り替えボタン）
+   ============================= */
 .google-pagination {
-  /* ページネーション全体の外枠。中央揃え・幅いっぱい */
-  display: block; /* flexからblockに変更し、text-alignで中央揃え */
-  text-align: center;
-  margin: 36px 0 0 0;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 28px 0 0 0;
 }
-.pagination-btn {
-  /* ページ番号・前へ・次へボタン共通の見た目。中央に横並び・大きめ・青枠 */
-  display: inline-block;
-  background: #fff;
-  color: #1a73e8;
-  border: 2.5px solid #1a73e8;
-  border-radius: 32px;
-  padding: 13px 32px;
-  margin: 0 6px 12px 6px;
-  font-size: 1.18em;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s, box-shadow 0.18s, border 0.18s;
-  box-shadow: 0 4px 16px rgba(26,115,232,0.13);
-  font-weight: 700;
-  outline: none;
-  min-width: 64px;
-  letter-spacing: 0.04em;
-  position: relative;
-  z-index: 1;
-  align-items: center;
+.pagination-btn,
+.prev-btn,
+.next-btn,
+.page-num-btn {
+    display: inline-block;
+    background: #1a73e8 !important;
+    color: #fff !important;
+    border: 1.5px solid #1a73e8 !important;
+    border-radius: 18px !important;
+    padding: 6px 16px !important;
+    margin: 0 3px 8px 3px !important;
+    font-size: 1em !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s, border 0.18s;
+    box-shadow: 0 2px 6px rgba(26,115,232,0.13);
+    outline: none;
+    min-width: 36px;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
 }
-.pagination-btn:disabled {
-  /* 無効時（最初/最後ページの前へ・次へ） */
-  color: #b0b0b0;
-  border-color: #eee;
-  background: #f8f9fa;
-  cursor: default;
-  box-shadow: none;
-  align-items: center;
+.pagination-btn:hover,
+.prev-btn:hover,
+.next-btn:hover,
+.page-num-btn:hover {
+    background: #1765c1 !important;
+    color: #fff !important;
+    border-color: #1765c1 !important;
+}
+.pagination-btn:disabled,
+.prev-btn:disabled,
+.next-btn:disabled,
+.page-num-btn:disabled {
+    color: #b0b0b0 !important;
+    border-color: #eee !important;
+    background: #f8f9fa !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
 }
 .page-num-btn.active {
-  /* 現在ページ番号の強調（青グラデ・白文字） */
-  background: linear-gradient(90deg, #1a73e8 60%, #4285f4 100%);
-  color: #fff;
-  border-color: #1a73e8;
-  font-weight: bold;
-  box-shadow: 0 4px 16px rgba(26,115,232,0.18);
-  align-items: center;
+    background: #1765c1 !important;
+    color: #fff !important;
+    border-color: #1765c1 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 8px rgba(26,115,232,0.18) !important;
 }
-.prev-btn, .next-btn {
-  /* 前へ・次へボタンの青グラデ・白文字・大きめ */
-  background: linear-gradient(90deg, #1a73e8 60%, #4285f4 100%);
-  color: #fff;
-  border: 2.5px solid #1a73e8;
-  font-weight: bold;
-  border-radius: 32px;
-  min-width: 90px;
-  font-size: 1.18em;
-  box-shadow: 0 4px 16px rgba(26,115,232,0.18);
-  align-items: center;
-}
-.prev-btn:hover:not(:disabled), .next-btn:hover:not(:disabled) {
-  /* 前へ・次へボタンのホバー時（濃い青） */
-  background: linear-gradient(90deg, #1765c1 60%, #1a73e8 100%);
-  color: #fff;
-  border-color: #1765c1;
-  align-items: center;
-}
-.prev-btn:disabled, .next-btn:disabled {
-  /* 前へ・次へボタンの無効時 */
-  background: #f8f9fa;
-  color: #b0b0b0;
-  border-color: #eee;
-  box-shadow: none;
-  align-items: center;
-}
-/* --- ここまでページネーションUI --- */
 
+/* =============================
+   レスポンシブ対応
+   ============================= */
 @media (max-width: 700px) {
     .container {
         max-width: 98vw;
@@ -323,17 +316,17 @@ li:hover {
     }
 }
 @media (max-width: 600px) {
-  .store-card { padding: 12px 6px; }
-  .store-header { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .store-info { flex-direction: column; gap: 2px; }
-  #favorites-list li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-  .styled-fav-btn {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 4px;
-  }
+    .store-card { padding: 12px 6px; }
+    .store-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .store-info { flex-direction: column; gap: 2px; }
+    #favorites-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .styled-fav-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 4px;
+    }
 }
