@@ -3,7 +3,27 @@
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
 
-$apiKey = 'AIzaSyDjcIxdZOBupvg8-9XIxBLp9tt7freW60I'; // ★Google Cloud Consoleで取得したAPIキーを設定
+// .envファイルからAPIキーを取得する関数
+function getEnvVar($key) {
+    $envPath = __DIR__ . '/../.env';
+    if (!file_exists($envPath)) return null;
+    $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        if (strpos($line, '=') !== false) {
+            list($k, $v) = explode('=', $line, 2);
+            if (trim($k) === $key) return trim($v);
+        }
+    }
+    return null;
+}
+
+$apiKey = getEnvVar('GOOGLE_MAPS_API_KEY'); // .envから取得
+if (!$apiKey) {
+    echo json_encode(['error' => 'APIキーが設定されていません']);
+    exit;
+}
+
 $query = isset($_GET['query']) ? $_GET['query'] : '';
 $lat = isset($_GET['lat']) ? $_GET['lat'] : '';
 $lon = isset($_GET['lon']) ? $_GET['lon'] : '';
