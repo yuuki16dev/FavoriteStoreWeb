@@ -8,13 +8,15 @@
 <body>
     <div class="container">
         <h1>お気に入り店舗検索</h1>
+        <!-- 検索フォーム -->
         <form method="get" action="favorites_search.html" style="margin-bottom: 24px; text-align:center;" id="search-form">
             <input type="text" name="search_query" placeholder="地名や店舗名で検索" style="width:60%;padding:8px;" autocomplete="off">
             <button type="submit">マップで検索</button>
         </form>
-        <!-- 検索ワードが入力された場合のGoogleマップリンクはJSやPHPで動的に生成可能 -->
+        <!-- Googleマップリンク・埋め込み -->
         <div id="map-link-area" style="text-align:center; margin-bottom:24px;"></div>
         <div id="map-embed-area" style="text-align:center; margin-bottom:16px;"></div>
+        <!-- 検索結果リスト -->
         <div id="search-result-list-area">
             <h2 style="text-align:center; color:#2d3748; margin-top:32px;">検索結果 店舗一覧</h2>
             <div id="search-result-list" style="margin-bottom:24px;"></div>
@@ -24,152 +26,151 @@
     </div>
     <script src="linkUtils.js"></script>
     <script>
-    // JSで検索ワードからGoogleマップリンクと埋め込みマップを生成
+    // --- 検索ワード取得 ---
     const params = new URLSearchParams(window.location.search);
     const query = params.get('search_query');
-    // フォーム内容やマップ・リンクをクリアする処理を削除
-    if(query) {
+
+    // --- 検索ワードがあればマップリンク・埋め込み・API呼び出し ---
+    if (query) {
         const mapUrl = 'https://www.google.com/maps/search/?api=1&language=ja&hl=ja&query=' + encodeURIComponent(query);
         document.getElementById('map-link-area').innerHTML = `<a href="${mapUrl}" class="map-link" target="_blank">「${query}」をGoogleマップで検索</a>`;
-        // Googleマップ埋め込みiframe
         const embedUrl = 'https://www.google.com/maps?q=' + encodeURIComponent(query) + '&hl=ja&output=embed';
         document.getElementById('map-embed-area').innerHTML = `<iframe width="100%" height="350" frameborder="0" style="border:0;border-radius:8px;" src="${embedUrl}" allowfullscreen></iframe>`;
-        // Google Places API（PHP中継）から店舗データ取得
+        // --- 位置情報取得してAPI呼び出し ---
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(pos) {
                 const userLat = pos.coords.latitude;
                 const userLon = pos.coords.longitude;
-                console.log('[DEBUG] 取得した現在位置:', userLat, userLon);
                 // 検索ワードが具体的な店舗名（例: 2文字以上のひらがな・カタカナ・漢字・アルファベット・数字を含む）なら通常検索
                 const isSpecificName = /^[\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\uFF10-\uFF19\d]{2,}$/.test(query);
                 // Google Places APIは常にText Searchで対応
                 fetch('api/google_places.php?query=' + encodeURIComponent(query) + '&lat=' + userLat + '&lon=' + userLon)
-                  .then(res => {
-                    if (!res.ok) throw new Error('Network response was not ok');
-                    return res.json();
-                  })
-                  .then(data => {
-                    // デバッグ用: レスポンスを画面に表示
-                    document.getElementById('search-result-list').innerHTML =
-                      '<pre style="background:#f8f8f8;color:#333;font-size:0.95em;overflow:auto;max-width:100vw;">' +
-                      JSON.stringify(data, null, 2) + '</pre>';
-                    if (!data.results || data.results.length === 0) {
-                      document.getElementById('search-result-list').innerHTML += '<div style="color:#c00;text-align:center;">検索結果がありません</div>';
-                      return;
-                    }
-                    // 20km未満の店舗のみ抽出し、近い順で最大50件表示
-                    const stores = data.results.map(store => {
-                        const lat = store.geometry && store.geometry.location ? store.geometry.location.lat : null;
-                        const lon = store.geometry && store.geometry.location ? store.geometry.location.lng : null;
-                        if (lat !== null && lon !== null) {
-                            const toRad = deg => deg * Math.PI / 180;
-                            const R = 6371;
-                            const dLat = toRad(lat - userLat);
-                            const dLon = toRad(lon - userLon);
-                            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                                Math.cos(toRad(userLat)) * Math.cos(toRad(lat)) *
-                                Math.sin(dLon/2) * Math.sin(dLon/2);
-                            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                            const distance = R * c;
-                            store._distance = distance;
-                        } else {
-                            store._distance = Infinity;
+                    .then(res => {
+                        if (!res.ok) throw new Error('Network response was not ok');
+                        return res.json();
+                    })
+                    .then(data => {
+                        // デバッグ用: レスポンスを画面に表示
+                        document.getElementById('search-result-list').innerHTML =
+                            '<pre style="background:#f8f8f8;color:#333;font-size:0.95em;overflow:auto;max-width:100vw;">' +
+                            JSON.stringify(data, null, 2) + '</pre>';
+                        if (!data.results || data.results.length === 0) {
+                            document.getElementById('search-result-list').innerHTML += '<div style="color:#c00;text-align:center;">検索結果がありません</div>';
+                            return;
                         }
-                        return store;
-                    }).filter(store => isFinite(store._distance) && store._distance < 20);
-                    stores.sort((a, b) => a._distance - b._distance);
-                    renderList(stores.slice(0, 50), query);
-                  })
-                  .catch(async err => {
-                    let errorText = '';
-                    try {
-                      const res = await fetch('api/google_places.php?query=' + encodeURIComponent(query));
-                      errorText = await res.text();
-                    } catch (e) {}
-                    console.error('API取得エラー:', err, errorText);
-                    document.getElementById('search-result-list').innerHTML =
-                      '<div style="color:#c00;text-align:center;">店舗情報の取得に失敗しました<br><pre style="text-align:left;white-space:pre-wrap;background:#f8f8f8;padding:8px;border-radius:4px;max-width:90vw;overflow:auto;">' +
-                      (errorText ? errorText.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c])) : '') +
-                      '</pre></div>';
-                  });
+                        // 20km未満の店舗のみ抽出し、近い順で最大50件表示
+                        const stores = data.results.map(store => {
+                            const lat = store.geometry && store.geometry.location ? store.geometry.location.lat : null;
+                            const lon = store.geometry && store.geometry.location ? store.geometry.location.lng : null;
+                            if (lat !== null && lon !== null) {
+                                const toRad = deg => deg * Math.PI / 180;
+                                const R = 6371;
+                                const dLat = toRad(lat - userLat);
+                                const dLon = toRad(lon - userLon);
+                                const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                                    Math.cos(toRad(userLat)) * Math.cos(toRad(lat)) *
+                                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                                const distance = R * c;
+                                store._distance = distance;
+                            } else {
+                                store._distance = Infinity;
+                            }
+                            return store;
+                        }).filter(store => isFinite(store._distance) && store._distance < 20);
+                        stores.sort((a, b) => a._distance - b._distance);
+                        renderList(stores.slice(0, 50), query);
+                    })
+                    .catch(async err => {
+                        let errorText = '';
+                        try {
+                            const res = await fetch('api/google_places.php?query=' + encodeURIComponent(query));
+                            errorText = await res.text();
+                        } catch (e) {}
+                        console.error('API取得エラー:', err, errorText);
+                        document.getElementById('search-result-list').innerHTML =
+                            '<div style="color:#c00;text-align:center;">店舗情報の取得に失敗しました<br><pre style="text-align:left;white-space:pre-wrap;background:#f8f8f8;padding:8px;border-radius:4px;max-width:90vw;overflow:auto;">' +
+                            (errorText ? errorText.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c])) : '') +
+                            '</pre></div>';
+                    });
             }, function() {
-                // 位置情報取得不可時は従来通り
+                // 位置情報取得不可時
                 fetch('api/google_places.php?query=' + encodeURIComponent(query))
-                  .then(res => {
-                    if (!res.ok) throw new Error('Network response was not ok');
-                    return res.json();
-                  })
-                  .then(data => {
-                    // デバッグ用: レスポンスを画面に表示
-                    document.getElementById('search-result-list').innerHTML =
-                      '<pre style="background:#f8f8f8;color:#333;font-size:0.95em;overflow:auto;max-width:100vw;">' +
-                      JSON.stringify(data, null, 2) + '</pre>';
-                    if (!data.results || data.results.length === 0) {
-                      document.getElementById('search-result-list').innerHTML += '<div style="color:#c00;text-align:center;">検索結果がありません</div>';
-                      return;
-                    }
-                    renderList(data.results.slice(0, 50), query);
-                  })
-                  .catch(async err => {
-                    let errorText = '';
-                    try {
-                      const res = await fetch('api/google_places.php?query=' + encodeURIComponent(query));
-                      errorText = await res.text();
-                    } catch (e) {}
-                    console.error('API取得エラー:', err, errorText);
-                    document.getElementById('search-result-list').innerHTML =
-                      '<div style="color:#c00;text-align:center;">店舗情報の取得に失敗しました<br><pre style="text-align:left;white-space:pre-wrap;background:#f8f8f8;padding:8px;border-radius:4px;max-width:90vw;overflow:auto;">' +
-                      (errorText ? errorText.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c])) : '') +
-                      '</pre></div>';
-                  });
+                    .then(res => {
+                        if (!res.ok) throw new Error('Network response was not ok');
+                        return res.json();
+                    })
+                    .then(data => {
+                        // デバッグ用: レスポンスを画面に表示
+                        document.getElementById('search-result-list').innerHTML =
+                            '<pre style="background:#f8f8f8;color:#333;font-size:0.95em;overflow:auto;max-width:100vw;">' +
+                            JSON.stringify(data, null, 2) + '</pre>';
+                        if (!data.results || data.results.length === 0) {
+                            document.getElementById('search-result-list').innerHTML += '<div style="color:#c00;text-align:center;">検索結果がありません</div>';
+                            return;
+                        }
+                        renderList(data.results.slice(0, 50), query);
+                    })
+                    .catch(async err => {
+                        let errorText = '';
+                        try {
+                            const res = await fetch('api/google_places.php?query=' + encodeURIComponent(query));
+                            errorText = await res.text();
+                        } catch (e) {}
+                        console.error('API取得エラー:', err, errorText);
+                        document.getElementById('search-result-list').innerHTML =
+                            '<div style="color:#c00;text-align:center;">店舗情報の取得に失敗しました<br><pre style="text-align:left;white-space:pre-wrap;background:#f8f8f8;padding:8px;border-radius:4px;max-width:90vw;overflow:auto;">' +
+                            (errorText ? errorText.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c])) : '') +
+                            '</pre></div>';
+                    });
             });
         } else {
-            // 位置情報取得不可時は従来通り
+            // 位置情報取得不可時
             fetch('api/google_places.php?query=' + encodeURIComponent(query))
-              .then(res => {
-                if (!res.ok) throw new Error('Network response was not ok');
-                return res.json();
-              })
-              .then(data => {
-                // デバッグ用: レスポンスを画面に表示
-                document.getElementById('search-result-list').innerHTML =
-                  '<pre style="background:#f8f8f8;color:#333;font-size:0.95em;overflow:auto;max-width:100vw;">' +
-                  JSON.stringify(data, null, 2) + '</pre>';
-                if (!data.results || data.results.length === 0) {
-                  document.getElementById('search-result-list').innerHTML += '<div style="color:#c00;text-align:center;">検索結果がありません</div>';
-                  return;
-                }
-                renderList(data.results.slice(0, 50), query);
-              })
-              .catch(async err => {
-                let errorText = '';
-                try {
-                  const res = await fetch('api/google_places.php?query=' + encodeURIComponent(query));
-                  errorText = await res.text();
-                } catch (e) {}
-                console.error('API取得エラー:', err, errorText);
-                document.getElementById('search-result-list').innerHTML =
-                  '<div style="color:#c00;text-align:center;">店舗情報の取得に失敗しました<br><pre style="text-align:left;white-space:pre-wrap;background:#f8f8f8;padding:8px;border-radius:4px;max-width:90vw;overflow:auto;">' +
-                  (errorText ? errorText.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c])) : '') +
-                  '</pre></div>';
-              });
+                .then(res => {
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    return res.json();
+                })
+                .then(data => {
+                    // デバッグ用: レスポンスを画面に表示
+                    document.getElementById('search-result-list').innerHTML =
+                        '<pre style="background:#f8f8f8;color:#333;font-size:0.95em;overflow:auto;max-width:100vw;">' +
+                        JSON.stringify(data, null, 2) + '</pre>';
+                    if (!data.results || data.results.length === 0) {
+                        document.getElementById('search-result-list').innerHTML += '<div style="color:#c00;text-align:center;">検索結果がありません</div>';
+                        return;
+                    }
+                    renderList(data.results.slice(0, 50), query);
+                })
+                .catch(async err => {
+                    let errorText = '';
+                    try {
+                        const res = await fetch('api/google_places.php?query=' + encodeURIComponent(query));
+                        errorText = await res.text();
+                    } catch (e) {}
+                    console.error('API取得エラー:', err, errorText);
+                    document.getElementById('search-result-list').innerHTML =
+                        '<div style="color:#c00;text-align:center;">店舗情報の取得に失敗しました<br><pre style="text-align:left;white-space:pre-wrap;background:#f8f8f8;padding:8px;border-radius:4px;max-width:90vw;overflow:auto;">' +
+                        (errorText ? errorText.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c])) : '') +
+                        '</pre></div>';
+                });
         }
     } else {
+        // 検索ワードがない場合は各エリアを非表示
         document.getElementById('search-result-list-area').style.display = 'none';
         document.getElementById('map-link-area').innerHTML = '';
         document.getElementById('map-embed-area').innerHTML = '';
     }
-    // Google Places API用のrenderList
+
+    // --- 検索結果リスト描画（距離順ソート） ---
     function renderList(stores, query) {
-        // 位置情報取得→近い順にソート
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(pos) {
                 const userLat = pos.coords.latitude;
                 const userLon = pos.coords.longitude;
-                // 距離計算関数
                 function getDistance(lat1, lon1, lat2, lon2) {
                     const toRad = deg => deg * Math.PI / 180;
-                    const R = 6371; // km
+                    const R = 6371;
                     const dLat = toRad(lat2 - lat1);
                     const dLon = toRad(lon2 - lon1);
                     const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -187,7 +188,6 @@
                         store._distance = Infinity;
                     }
                 });
-                // 近い順（昇順）でソート
                 stores.sort((a, b) => a._distance - b._distance);
                 renderListCore(stores, query, true);
             }, function() {
@@ -197,7 +197,8 @@
             renderListCore(stores, query, false);
         }
     }
-    // Google Places API用の描画本体
+
+    // --- 検索結果リスト本体・ページネーション ---
     function renderListCore(stores, query, showDistance) {
         window._lastStores = stores;
         let jsonLd = [];
@@ -215,6 +216,7 @@
             const pageStores = stores.slice(startIdx, endIdx);
             jsonLd = [];
             resultList.innerHTML = pageStores.map(store => {
+                // 店舗情報の描画
                 const name = store.name || '';
                 const address = store.vicinity || store.formatted_address || '';
                 const placeId = store.place_id || '';
@@ -270,28 +272,28 @@
             document.getElementById('seo-json-ld').textContent = JSON.stringify(jsonLd, null, 2);
             // ページネーションUI描画
             renderPagination();
-            // ボタンイベント再付与
+            // お気に入りボタンイベント再付与
             setTimeout(() => {
-              document.querySelectorAll('.add-favorite-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                  const store = {
-                    id: this.getAttribute('data-id'),
-                    name: this.getAttribute('data-name'),
-                    address: this.getAttribute('data-address'),
-                    url: this.getAttribute('data-url'),
-                    mapUrl: this.getAttribute('data-mapurl'),
-                    lat: this.getAttribute('data-lat'),
-                    lng: this.getAttribute('data-lng')
-                  };
-                  addFavorite(store);
-                  this.outerHTML = '<span class="favorite-registered">★ お気に入り登録済み</span>';
+                document.querySelectorAll('.add-favorite-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const store = {
+                            id: this.getAttribute('data-id'),
+                            name: this.getAttribute('data-name'),
+                            address: this.getAttribute('data-address'),
+                            url: this.getAttribute('data-url'),
+                            mapUrl: this.getAttribute('data-mapurl'),
+                            lat: this.getAttribute('data-lat'),
+                            lng: this.getAttribute('data-lng')
+                        };
+                        addFavorite(store);
+                        this.outerHTML = '<span class="favorite-registered">★ お気に入り登録済み</span>';
+                    });
                 });
-              });
             }, 0);
         }
-        // ページネーションUI
+        // ページネーションUI描画
         function renderPagination() {
-            let html = '<div class="pagination google-pagination">';
+            let html = '<div class="google-pagination">';
             if (totalPages > 1) {
                 html += `<button class="pagination-btn prev-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage-1}">← 前へ</button>`;
                 for (let i = 1; i <= totalPages; i++) {
@@ -313,18 +315,17 @@
         // 初期ページ描画
         renderPage(1);
     }
-    // ハイライト用（検索ワードを強調表示）
+
+    // --- 検索ワード強調表示 ---
     function highlight(text) {
-        // 検索ワードに一致する部分をspanで強調
         const match = new RegExp(`(${query.replace(/([.*+?^${}()|\[\]\\\/])/, '\\$1')})`, 'gi');
         return text.replace(match, '<span class="highlight">$1</span>');
     }
-    // お気に入り登録処理
+
+    // --- お気に入り登録処理 ---
     function addFavorite(store) {
-        // store: {id, name, address, url, ...}
         const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         const storeList = JSON.parse(localStorage.getItem('storeList') || '[]');
-        // storeListに同じIDがなければ追加、あれば上書き
         const idx = storeList.findIndex(s => s.id === store.id);
         if (idx === -1) {
             storeList.push(store);
@@ -332,28 +333,32 @@
             storeList[idx] = store;
         }
         localStorage.setItem('storeList', JSON.stringify(storeList));
-        // お気に入りにも追加
         if (!favorites.some(f => f.id === store.id)) {
             favorites.push({ id: store.id });
             localStorage.setItem('favorites', JSON.stringify(favorites));
         }
     }
-    // Place Details APIでwebsiteを取得してから保存
+
+    // --- Place Details APIでwebsiteを取得してから保存 ---
     function fetchPlaceDetailsAndSave(placeId, name, address) {
         fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=website&key=YOUR_API_KEY`)
-          .then(res => res.json())
-          .then(data => {
-            const website = data.result && data.result.website ? data.result.website : '';
-            const store = {
-              id: placeId,
-              name: name,
-              address: address,
-              url: website, // ここに公式HP
-              // ...他の情報
-            };
-            // favoritesとstoreListに保存
-            addFavorite(store);
-          });
+            .then(res => res.json())
+            .then(data => {
+                const website = data.result && data.result.website ? data.result.website : '';
+                const store = {
+                    id: placeId,
+                    name: name,
+                    address: address,
+                    url: website,
+                };
+                addFavorite(store);
+            });
+    }
+
+    // --- 検索バーに検索ワードを残す ---
+    const searchInput = document.querySelector('input[name="search_query"]');
+    if (searchInput && query) {
+        searchInput.value = query;
     }
     </script>
 </body>
