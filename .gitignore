@@ -1,0 +1,11 @@
+# .envファイルにAPIキーなどの機密情報を記載
+.env
+# OSやエディタによる一時ファイル
+*.log
+.DS_Store
+Thumbs.db
+# PHPStormやVSCodeの設定
+.idea/
+.vscode/
+# その他
+node_modules/
