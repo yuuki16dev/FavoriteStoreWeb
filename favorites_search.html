@@ -202,39 +202,48 @@
         window._lastStores = stores;
         let jsonLd = [];
         const resultList = document.getElementById('search-result-list');
-        resultList.innerHTML = stores.map(store => {
-            const name = store.name || '';
-            const address = store.vicinity || store.formatted_address || '';
-            const placeId = store.place_id || '';
-            const lat = store.geometry && store.geometry.location ? store.geometry.location.lat : '';
-            const lon = store.geometry && store.geometry.location ? store.geometry.location.lng : '';
-            const mapUrl = (lat && lon)
-                ? `https://www.google.com/maps/search/?api=1&query=${lat},${lon}&query_place_id=${placeId}`
-                : '';
-            // 公式HP（website）があればそれを使う
-            const website = store.website ? store.website : '';
-            // 店舗名リンクとマップURLリンクを共通関数で生成
-            const nameHtml = createStoreNameLink(name, website);
-            const mapUrlHtml = createMapUrlLink(lat, lon);
-            jsonLd.push({
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": name,
-                "address": address,
-                "url": mapUrl,
-                "hasMap": mapUrl
-            });
-            let distStr = '';
-            if (showDistance && typeof store._distance === 'number' && isFinite(store._distance)) {
-                distStr = `<span style='color:#888;font-size:0.92em;margin-left:8px;'>(約${store._distance.toFixed(2)}km)</span>`;
-            }
-            // お気に入り判定
-            let isFavorite = false;
-            try {
-                const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
-                isFavorite = favs.some(f => f.id === placeId);
-            } catch(e) {}
-            return `
+        // ページネーション用
+        const PAGE_SIZE = 5;
+        let currentPage = 1;
+        const totalPages = Math.ceil(stores.length / PAGE_SIZE);
+
+        // ページ描画関数
+        function renderPage(page) {
+            currentPage = page;
+            const startIdx = (page - 1) * PAGE_SIZE;
+            const endIdx = startIdx + PAGE_SIZE;
+            const pageStores = stores.slice(startIdx, endIdx);
+            jsonLd = [];
+            resultList.innerHTML = pageStores.map(store => {
+                const name = store.name || '';
+                const address = store.vicinity || store.formatted_address || '';
+                const placeId = store.place_id || '';
+                const lat = store.geometry && store.geometry.location ? store.geometry.location.lat : '';
+                const lon = store.geometry && store.geometry.location ? store.geometry.location.lng : '';
+                const mapUrl = (lat && lon)
+                    ? `https://www.google.com/maps/search/?api=1&query=${lat},${lon}&query_place_id=${placeId}`
+                    : '';
+                const website = store.website ? store.website : '';
+                const nameHtml = createStoreNameLink(name, website);
+                const mapUrlHtml = createMapUrlLink(lat, lon);
+                jsonLd.push({
+                    "@context": "https://schema.org",
+                    "@type": "LocalBusiness",
+                    "name": name,
+                    "address": address,
+                    "url": mapUrl,
+                    "hasMap": mapUrl
+                });
+                let distStr = '';
+                if (showDistance && typeof store._distance === 'number' && isFinite(store._distance)) {
+                    distStr = `<span style='color:#888;font-size:0.92em;margin-left:8px;'>(約${store._distance.toFixed(2)}km)</span>`;
+                }
+                let isFavorite = false;
+                try {
+                    const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    isFavorite = favs.some(f => f.id === placeId);
+                } catch(e) {}
+                return `
 <div class="store-card">
   <div style="font-size:0.95em;color:#202124;">
     ${nameHtml}
@@ -257,30 +266,52 @@
         >★ お気に入り登録</button>`}
 </div>
 `;
-        }).join('');
-        document.getElementById('seo-json-ld').textContent = JSON.stringify(jsonLd, null, 2);
-        // 画面描画後にイベントリスナーを付与
-        setTimeout(() => {
-          // 「お気に入り登録」ボタンにクリックイベントを付与
-          document.querySelectorAll('.add-favorite-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-              // ボタンのdata属性から店舗情報を取得
-              const store = {
-                id: this.getAttribute('data-id'),
-                name: this.getAttribute('data-name'),
-                address: this.getAttribute('data-address'),
-                url: this.getAttribute('data-url'),
-                mapUrl: this.getAttribute('data-mapurl'),
-                lat: this.getAttribute('data-lat'),
-                lng: this.getAttribute('data-lng')
-              };
-              // お気に入り登録処理
-              addFavorite(store);
-              // ボタンを即時「お気に入り登録済み」表記に変更
-              this.outerHTML = '<span class="favorite-registered">★ お気に入り登録済み</span>';
+            }).join('');
+            document.getElementById('seo-json-ld').textContent = JSON.stringify(jsonLd, null, 2);
+            // ページネーションUI描画
+            renderPagination();
+            // ボタンイベント再付与
+            setTimeout(() => {
+              document.querySelectorAll('.add-favorite-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                  const store = {
+                    id: this.getAttribute('data-id'),
+                    name: this.getAttribute('data-name'),
+                    address: this.getAttribute('data-address'),
+                    url: this.getAttribute('data-url'),
+                    mapUrl: this.getAttribute('data-mapurl'),
+                    lat: this.getAttribute('data-lat'),
+                    lng: this.getAttribute('data-lng')
+                  };
+                  addFavorite(store);
+                  this.outerHTML = '<span class="favorite-registered">★ お気に入り登録済み</span>';
+                });
+              });
+            }, 0);
+        }
+        // ページネーションUI
+        function renderPagination() {
+            let html = '<div class="pagination google-pagination">';
+            if (totalPages > 1) {
+                html += `<button class="pagination-btn prev-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage-1}">← 前へ</button>`;
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button class="pagination-btn page-num-btn${i===currentPage?' active':''}" data-page="${i}">${i}</button>`;
+                }
+                html += `<button class="pagination-btn next-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage+1}">次へ →</button>`;
+            }
+            html += '</div>';
+            resultList.innerHTML += html;
+            document.querySelectorAll('.pagination-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const page = parseInt(this.getAttribute('data-page'));
+                    if (!isNaN(page) && page >= 1 && page <= totalPages && page !== currentPage) {
+                        renderPage(page);
+                    }
+                });
             });
-          });
-        }, 0);
+        }
+        // 初期ページ描画
+        renderPage(1);
     }
     // ハイライト用（検索ワードを強調表示）
     function highlight(text) {

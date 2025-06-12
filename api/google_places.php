@@ -37,9 +37,9 @@ if (!$data || !isset($data['results'])) {
 }
 
 // Google Places APIの生レスポンスをそのまま返す
-// ページネーション対応（最大10件までwebsite取得）
+// ページネーション対応（最大20件までwebsite取得）
 if (isset($data['results']) && is_array($data['results'])) {
-    $max = min(count($data['results']), 50); // 最大50件
+    $max = min(count($data['results']), 20); // 20件までに拡張
     for ($i = 0; $i < $max; $i++) {
         $place = $data['results'][$i];
         if (!empty($place['place_id'])) {
@@ -48,10 +48,15 @@ if (isset($data['results']) && is_array($data['results'])) {
             curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
             $detailsRes = curl_exec($ch2);
+            $httpcode2 = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
             curl_close($ch2);
-            $details = json_decode($detailsRes, true);
-            if (isset($details['result']['website'])) {
-                $data['results'][$i]['website'] = $details['result']['website'];
+            if ($httpcode2 === 200 && $detailsRes) {
+                $details = json_decode($detailsRes, true);
+                if (isset($details['result']['website'])) {
+                    $data['results'][$i]['website'] = $details['result']['website'];
+                }
+            } else {
+                $data['results'][$i]['website'] = '';
             }
         }
     }
